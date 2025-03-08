@@ -1,0 +1,12 @@
+/home/caryuter/NetBeansProjects/imc-app/src/main/java/com/learningjava/imc/app/repositories/IMCRepo.java
+/home/caryuter/NetBeansProjects/imc-app/src/main/java/com/learningjava/imc/app/controllers/IMCController.java
+/home/caryuter/NetBeansProjects/imc-app/src/main/java/com/learningjava/imc/app/models/User.java
+/home/caryuter/NetBeansProjects/imc-app/src/main/java/com/learningjava/imc/app/services/IMCServiceDefault.java
+/home/caryuter/NetBeansProjects/imc-app/src/main/java/com/learningjava/imc/app/repositories/UserRepo.java
+/home/caryuter/NetBeansProjects/imc-app/src/main/java/com/learningjava/imc/app/repositories/IMCRepoDefault.java
+/home/caryuter/NetBeansProjects/imc-app/src/main/java/com/learningjava/imc/app/services/UserServiceDefault.java
+/home/caryuter/NetBeansProjects/imc-app/src/main/java/com/learningjava/imc/app/services/UserService.java
+/home/caryuter/NetBeansProjects/imc-app/src/main/java/com/learningjava/imc/app/repositories/UserRepoDefault.java
+/home/caryuter/NetBeansProjects/imc-app/src/main/java/com/learningjava/imc/app/controllers/UserController.java
+/home/caryuter/NetBeansProjects/imc-app/src/main/java/com/learningjava/imc/app/services/IMCService.java
+/home/caryuter/NetBeansProjects/imc-app/src/main/java/com/learningjava/imc/app/models/IMC.java
