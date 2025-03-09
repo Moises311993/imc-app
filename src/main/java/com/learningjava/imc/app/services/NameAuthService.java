@@ -15,6 +15,10 @@ public class NameAuthService implements SimpleAuthService{
     @Autowired
     private UserRepo userRepo;
 
+    public NameAuthService() {
+    }
+    
+
     public boolean login(String username, String password) {
         User usuario = userRepo.findById(username)
                 .orElse(null);

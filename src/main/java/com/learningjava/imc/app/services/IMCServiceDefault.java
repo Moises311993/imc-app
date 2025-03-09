@@ -22,14 +22,19 @@ public class IMCServiceDefault implements IMCService{
     private IMCRepo imcRepo;
     @Autowired
     private UserRepo userRepo;
+
+    public IMCServiceDefault() {
+    }
+    
     
     @Override
     public IMC calculateImc(String username, double weight){
          User user = userRepo.findById(username).orElseThrow(
-                 () -> new RuntimeException(" El usuario no existe "));
+                 () -> new RuntimeException(" El usuario no existe: " + username));
         double height = user.getHeight();
         IMC imc = new IMC(username, weight, weight / (height * height), LocalDate.now());
-        return  save(imc);
+        save(imc);
+        return imc;
     }
 
     @Override
@@ -41,7 +46,7 @@ public class IMCServiceDefault implements IMCService{
     @Override
     public IMC getById(Integer id) {
         return imcRepo.findById(id).orElseThrow(
-                () -> new RuntimeException("registro de IMC no encontrado"));
+                () -> new RuntimeException("registro de IMC no encontrado: " + id));
     }
 
     @Override
@@ -52,7 +57,7 @@ public class IMCServiceDefault implements IMCService{
     @Override
     public List<IMC> findByUser(String username) {
         User user = userRepo.findById(username)
-                .orElseThrow(() -> new RuntimeException("nombre de usuario invalido"));
+                .orElseThrow(() -> new RuntimeException("nombre de usuario invalido: " + username));
         return imcRepo.findAll().stream()
                 .filter(imc -> 
                     imc.getUsername().equals(user.getUsername()))

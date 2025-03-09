@@ -16,6 +16,11 @@ import java.util.Optional;
 public class UserRepo implements Repository<User, String>{
     private final Map<String, User> usuarios = new HashMap<>();
 
+    public UserRepo() {
+    }
+
+    
+    
     @Override
     public List<User> findAll() {
         return new ArrayList<>(usuarios.values());

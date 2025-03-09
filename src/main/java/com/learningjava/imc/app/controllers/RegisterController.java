@@ -18,6 +18,10 @@ public class RegisterController {
     @Autowired
     private UserServiceDefault userService;
 
+    public RegisterController() {
+    }
+
+    
     @GetMapping("/register")
     public String showRegisterForm() {
         return "register";  // Vista del formulario de registro
@@ -34,7 +38,6 @@ public class RegisterController {
                                     HttpSession session,
                                     Model model) {
 
-        try{
         if (!password.equals(passwordConfirm)) {
             model.addAttribute("error", "Las contraseñas no coinciden");
             return "register"; 
@@ -53,7 +56,6 @@ public class RegisterController {
         userService.save(new User(fullName, username, password, age, gender, height));
         model.addAttribute("username", username);
         session.setAttribute("username", username);
-        } catch(Exception e){}
-        return "redirect:/login"; 
+        return "redirect:/dashboard"; 
     }
 }

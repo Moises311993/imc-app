@@ -16,8 +16,11 @@ public class UserServiceDefault implements UserService{
 
     @Autowired
     private UserRepo userRepo;
-    @Autowired
-    private IMCServiceDefault imcService;
+
+    public UserServiceDefault() {
+    }
+    
+    
 
     public List<User> getAll() {
         return userRepo.findAll();

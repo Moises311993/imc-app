@@ -30,6 +30,10 @@ public class AuthController {
     public String showHomePage(){
         return "index";
     }
+    
+
+    public AuthController() {
+    }
 
     @PostMapping(value = {"/login"})
     public String login(@RequestParam String username, @RequestParam String password, HttpSession session,Model model) {

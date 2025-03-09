@@ -17,6 +17,10 @@ public class IMCRepo implements Repository<IMC, Integer>{
 
    private final Map<Integer, IMC> registros = new HashMap<>();
 
+    public IMCRepo() {
+    }
+
+   
     @Override
     public List<IMC> findAll() {
         return new ArrayList<>(registros.values());

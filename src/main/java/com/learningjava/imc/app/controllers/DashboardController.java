@@ -21,15 +21,19 @@ public class DashboardController {
     @Autowired
     private IMCServiceDefault imcService;
 
+    public DashboardController() {
+    }
+
+    
     @GetMapping("/dashboard")
     public String mostrarDashboard(HttpSession session, Model model) {
         if (session.getAttribute("username") == null) {
             return "redirect:/login";  
         }
 
-        String username = (String) session.getAttribute("usuario");
+        String username = (String) session.getAttribute("username");
         model.addAttribute("username", username);
-        model.addAttribute("IMCHistory", imcService.findByUser(username));  // Método que obtiene el historial de IMC
+        model.addAttribute("IMCHistory", imcService.findByUser(username));
         return "dashboard";
     }
 
@@ -38,10 +42,15 @@ public class DashboardController {
         if (session.getAttribute("username") == null) {
             return "redirect:/login";  
         }
-        IMC imc = imcService.calculateImc((String) session.getAttribute("usuario"), weight);
+        String username = (String) session.getAttribute("username");
+        IMC imc = imcService.calculateImc(username, weight);
 
         model.addAttribute("imc", imc.getImcValue());
+        model.addAttribute("username", username);
+        model.addAttribute("IMCHistory", imcService.findByUser(username));
 
         return "dashboard";
     }
+    
+    
 }

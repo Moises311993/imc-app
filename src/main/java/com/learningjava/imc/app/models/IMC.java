@@ -93,5 +93,30 @@ public class IMC {
     public LocalDate getDate() {
         return date;
     }
+
+    public static void setIdCounter(int idCounter) {
+        IMC.idCounter = idCounter;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+
+    public void setImcValue(double imcValue) {
+        this.imcValue = imcValue;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+    
       
 }
