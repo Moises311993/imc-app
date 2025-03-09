@@ -4,10 +4,11 @@
  */
 package com.learningjava.imc.app.services;
 
-/**
- *
- * @author caryuter
- */
-public interface IMCService {
-    
+import com.learningjava.imc.app.models.IMC;
+import com.learningjava.imc.app.models.User;
+import java.util.List;
+
+public interface IMCService extends DataService<IMC, Integer>{
+    List<IMC> findByUser(User user);
+    double calculateImc(String username, double weight);
 }

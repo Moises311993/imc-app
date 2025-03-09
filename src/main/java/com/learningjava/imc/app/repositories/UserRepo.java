@@ -12,8 +12,9 @@ import java.util.Map;
 import java.util.Optional;
 
 
-public class UserRepo implements Repository<User, Integer>{
-    private final Map<Integer, User> usuarios = new HashMap<>();
+@org.springframework.stereotype.Repository
+public class UserRepo implements Repository<User, String>{
+    private final Map<String, User> usuarios = new HashMap<>();
 
     @Override
     public List<User> findAll() {
@@ -21,29 +22,26 @@ public class UserRepo implements Repository<User, Integer>{
     }
 
     @Override
-    public Optional<User> findById(Integer id) {
+    public Optional<User> findById(String id) {
         return Optional.ofNullable(usuarios.get(id));
     }
 
     @Override
-    public boolean save(User usuario) {
-        return usuarios.put(usuario.getId(), usuario) == null;
+    public User save(User usuario) {
+        return usuarios.put(usuario.getUsername(), usuario);
     }
 
     @Override
-    public boolean update(Integer id, User usuario) {
+    public User update(String id, User usuario) {
         if (usuarios.containsKey(id)) {
-            User prev = usuarios.put(id, usuario);
-            return prev.equals(usuario);
+            return usuarios.put(id, usuario);
         }
-        return false;
+        return null;
     }
 
     @Override
-    public boolean delete(Integer id) {
-        if(!usuarios.containsKey(id)) return false;
-        usuarios.remove(id);
-        return true;
+    public User delete(String id) {
+        return usuarios.remove(id);
     }
     
 }

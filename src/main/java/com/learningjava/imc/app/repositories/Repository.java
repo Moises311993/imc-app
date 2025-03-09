@@ -10,7 +10,7 @@ import java.util.Optional;
 public interface Repository<T, ID> {
     List<T> findAll();
     Optional<T> findById(ID id);
-    boolean save(T entity);
-    boolean update(ID id, T entity);
-    boolean delete(ID id);
+    T save(T entity);
+    T update(ID id, T entity);
+    T delete(ID id);
 }

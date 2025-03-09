@@ -4,9 +4,11 @@
  */
 package com.learningjava.imc.app.services;
 
-import com.learningjava.imc.app.models.User;
-
-
-public interface UserService extends DataService<User, String>{
-    
+/**
+ *
+ * @author caryuter
+ */
+@FunctionalInterface
+public interface SimpleAuthService {
+     boolean login(String key, String pass);
 }

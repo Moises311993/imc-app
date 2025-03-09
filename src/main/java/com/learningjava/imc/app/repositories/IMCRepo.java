@@ -10,9 +10,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.UUID;
 
 
+@org.springframework.stereotype.Repository
 public class IMCRepo implements Repository<IMC, Integer>{
 
    private final Map<Integer, IMC> registros = new HashMap<>();
@@ -28,22 +28,21 @@ public class IMCRepo implements Repository<IMC, Integer>{
     }
 
     @Override
-    public boolean save(IMC imc) {
-        return registros.put(imc.getId(), imc).equals(imc);
+    public IMC save(IMC imc) {
+        return registros.put(imc.getId(), imc);
     }
 
     @Override
-    public boolean update(Integer id, IMC imc) {
+    public IMC update(Integer id, IMC imc) {
         if (registros.containsKey(id)) {
-            IMC prev = registros.put(id, imc);
-            return prev.equals(imc);
+            return registros.put(id, imc);
         }
-        return false;
+        return null;
     }
 
     @Override
-    public boolean delete(Integer id) {
-        return registros.remove(id) != null;
+    public IMC delete(Integer id) {
+        return registros.remove(id);
     }
     
 }

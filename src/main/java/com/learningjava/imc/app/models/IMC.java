@@ -93,13 +93,5 @@ public class IMC {
     public LocalDate getDate() {
         return date;
     }
-    
-    public double calculateImc(double weight, double height){
-        return weight / (height * height);
-    }
-    
-    
-    
-    
-    
+      
 }
