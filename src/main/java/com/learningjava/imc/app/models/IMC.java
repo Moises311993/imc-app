@@ -11,7 +11,7 @@ public class IMC {
     
     private static int idCounter = 0;
     private int id;
-    private int userId;
+    private String username;
     private double weight;
     private double imcValue;
     private LocalDate date;
@@ -21,9 +21,9 @@ public class IMC {
     }
     
     
-    public IMC(int userId, double weight, double imcValue, LocalDate date) {
+    public IMC(String username, double weight, double imcValue, LocalDate date) {
         this.id = idCounter;
-        this.userId = userId;
+        this.username = username;
         this.weight = weight;
         this.imcValue = imcValue;
         this.date = date;
@@ -50,7 +50,7 @@ public class IMC {
         if (this.id != other.id) {
             return false;
         }
-        if (this.userId != other.userId) {
+        if (this.username != other.username) {
             return false;
         }
         if (Double.doubleToLongBits(this.weight) != Double.doubleToLongBits(other.weight)) {
@@ -64,7 +64,7 @@ public class IMC {
 
     @Override
     public String toString() {
-        return "IMC{" + "id=" + id + ", userId=" + userId + ", weight=" + weight + ", imcValue=" + imcValue + ", date=" + date + '}';
+        return "IMC{" + "id=" + id + ", userId=" + username + ", weight=" + weight + ", imcValue=" + imcValue + ", date=" + date + '}';
     }
     
 
@@ -78,8 +78,8 @@ public class IMC {
         return id;
     }
 
-    public int getUserId() {
-        return userId;
+    public String getUsername() {
+        return username;
     }
 
     public double getWeight() {

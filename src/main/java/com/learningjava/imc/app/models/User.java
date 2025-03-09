@@ -17,7 +17,7 @@ public class User {
         idCounter++;
     }
     
-     public User(String fullName, String username, String password, int age, String gender, double height, List<IMC> imcRecords) {
+     public User(String fullName, String username, String password, int age, String gender, double height) {
         this.id = idCounter;
         this.fullName = fullName;
         this.username = username;

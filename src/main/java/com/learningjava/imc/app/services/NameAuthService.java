@@ -13,10 +13,10 @@ import org.springframework.stereotype.Service;
 public class NameAuthService implements SimpleAuthService{
 
     @Autowired
-    private UserRepo usuarioRepositorio;
+    private UserRepo userRepo;
 
     public boolean login(String username, String password) {
-        User usuario = usuarioRepositorio.findById(username)
+        User usuario = userRepo.findById(username)
                 .orElse(null);
         
         return usuario != null && usuario.getPassword().equals(password);

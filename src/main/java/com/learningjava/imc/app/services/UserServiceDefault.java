@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.learningjava.imc.app.services;
+import com.learningjava.imc.app.models.IMC;
 import com.learningjava.imc.app.models.User;
 import com.learningjava.imc.app.repositories.UserRepo;
 
@@ -15,6 +16,8 @@ public class UserServiceDefault implements UserService{
 
     @Autowired
     private UserRepo userRepo;
+    @Autowired
+    private IMCServiceDefault imcService;
 
     public List<User> getAll() {
         return userRepo.findAll();

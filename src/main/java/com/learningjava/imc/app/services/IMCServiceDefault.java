@@ -8,6 +8,7 @@ import com.learningjava.imc.app.models.IMC;
 import com.learningjava.imc.app.models.User;
 import com.learningjava.imc.app.repositories.IMCRepo;
 import com.learningjava.imc.app.repositories.UserRepo;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,11 +24,12 @@ public class IMCServiceDefault implements IMCService{
     private UserRepo userRepo;
     
     @Override
-    public double calculateImc(String username, double weight){
+    public IMC calculateImc(String username, double weight){
          User user = userRepo.findById(username).orElseThrow(
                  () -> new RuntimeException(" El usuario no existe "));
-         double height = user.getHeight();
-        return weight / (height * height);
+        double height = user.getHeight();
+        IMC imc = new IMC(username, weight, weight / (height * height), LocalDate.now());
+        return  save(imc);
     }
 
     @Override
@@ -48,8 +50,13 @@ public class IMCServiceDefault implements IMCService{
     }
 
     @Override
-    public List<IMC> findByUser(User user) {
-        return imcRepo.findAll().stream().filter(imc -> imc.getUserId() == user.getId()).collect(Collectors.toList());
+    public List<IMC> findByUser(String username) {
+        User user = userRepo.findById(username)
+                .orElseThrow(() -> new RuntimeException("nombre de usuario invalido"));
+        return imcRepo.findAll().stream()
+                .filter(imc -> 
+                    imc.getUsername().equals(user.getUsername()))
+                .collect(Collectors.toList());
     }
 
     @Override
