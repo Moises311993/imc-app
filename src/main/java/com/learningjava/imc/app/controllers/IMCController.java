@@ -6,10 +6,7 @@ package com.learningjava.imc.app.controllers;
 
 import com.learningjava.imc.app.models.IMC;
 
-/**
- *
- * @author caryuter
- */
+
 public class IMCController {
     
 }

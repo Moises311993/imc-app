@@ -1,12 +1,11 @@
 com/learningjava/imc/app/services/UserService.class
+com/learningjava/imc/app/services/UserServiceDefault.class
 com/learningjava/imc/app/services/IMCServiceDefault.class
 com/learningjava/imc/app/repositories/UserRepo.class
-com/learningjava/imc/app/repositories/IMCRepoDefault.class
-com/learningjava/imc/app/models/User.class
-com/learningjava/imc/app/models/IMC.class
-com/learningjava/imc/app/services/UserServiceDefault.class
 com/learningjava/imc/app/repositories/IMCRepo.class
+com/learningjava/imc/app/repositories/Repository.class
 com/learningjava/imc/app/controllers/IMCController.class
-com/learningjava/imc/app/repositories/UserRepoDefault.class
 com/learningjava/imc/app/controllers/UserController.class
+com/learningjava/imc/app/models/User.class
 com/learningjava/imc/app/services/IMCService.class
+com/learningjava/imc/app/models/IMC.class
